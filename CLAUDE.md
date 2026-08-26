@@ -48,7 +48,8 @@ Always run `nvm use` before any `npm` command in `examples/run-app/docker-hello-
 
 The example exists to give the docs something concrete to deploy and configure, not to demonstrate any Run App API (there isn't one):
 
-- `src/server.js` reads `PORT` (default `3000`) and `APP_MESSAGE` (default `"Hello from Run App!"`) and renders `APP_MESSAGE` on the root route. This mirrors Run App's "Share Env" / Environment tab step in the create-stack wizard (`docs/run-app/01-getting-started.md`) — a student sets `APP_MESSAGE` as a Share Env key/value when creating their stack and sees it reflected once deployed.
+- `src/server.js` serves a static frontend (`public/index.html`) plus a small JSON API (`/api/config`, `/api/counter`, `/api/counter/increment`, `/health`). It reads `PORT`, `APP_MESSAGE`, and `APP_COLOR` (defaults `3000`, `"Hello from Run App!"`, `#2563eb`). This mirrors Run App's "Share Env" / Environment tab step in the create-stack wizard (`docs/run-app/01-getting-started.md`) — a student sets these as Share Env key/values when creating their stack and sees them reflected once deployed.
+- The visit counter is held in-memory (a plain module-level variable) — it resets on container restart/redeploy. This is deliberate: there's no database service in this repo yet. It exists to make "state" and "health" visible/testable in the deployed app, and as a hook for a future persistence-backed example once a database Cloud+ service gets its own `docs/database/`.
 - The `Dockerfile` is the only thing Run App actually consumes — students build and push this image to a registry, then reference it in the Run App create-stack wizard.
 
 ## Known intentional gaps
@@ -57,6 +58,6 @@ These are teaching gaps, flagged here, not bugs to silently "fix":
 
 - Only Run App is documented so far. Other Cloud+ services (Storage, Streaming, Transcoder, Database, CMS) have no docs yet.
 - The create-stack wizard's "Policy & Resource" and "Editor / Upload Editor" tabs are named in `docs/run-app/01-getting-started.md` but not elaborated on — the source Notion page didn't go into detail on them either. Don't guess at their behavior; confirm against the live dashboard first.
-- The example app has no persistence, health checks, or production hardening — it exists purely to demonstrate the env-var / deploy flow.
+- The example app has an in-memory visit counter (not real persistence — see "Architecture of the example") and a basic `/health` endpoint, but still no production hardening (no auth, no rate limiting, no request validation beyond what Express does by default). It's a teaching artifact, not a template for a production service.
 
 When editing this repo, preserve this teaching intent: don't invent detail for UI steps that weren't confirmed, and don't quietly expand the example app beyond what the docs actually walk through.
