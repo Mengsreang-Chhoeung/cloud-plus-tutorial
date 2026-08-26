@@ -22,6 +22,12 @@ examples/run-app/docker-hello-world/ # Runnable sample app to deploy on Run App
 
 More Cloud+ services (Storage, Streaming, Transcoder, Database, CMS) will get their own `docs/<service>/` and, where it makes sense, `examples/<service>/` siblings later — none exist yet, and no stub files have been created for them.
 
+## Source material
+
+The content in `docs/run-app/` (and future Cloud+ service docs) is adapted from Sabay's internal Notion page: https://inky-fisher-dcb.notion.site/Cloud-Service-138af76af09380a2a386d90527979c02
+
+That page is the source of truth for what's confirmed vs. not — see "Known intentional gaps" below for UI details it didn't cover.
+
 ## Running the example
 
 ```bash
