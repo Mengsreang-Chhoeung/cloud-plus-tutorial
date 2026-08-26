@@ -1,6 +1,6 @@
 # Cloud+ Tutorial
 
-A beginner-friendly guide to Sabay's Cloud+ business services (SabayTEKH PaaS) — written for students, one service at a time, each paired with a runnable example where one makes sense.
+A beginner-friendly guide to [Sabay's Cloud+](https://cloud.sabay.com) business services (SabayTEKH PaaS) — written for students, one service at a time, each paired with a runnable example where one makes sense.
 
 ## Structure
 
@@ -30,8 +30,8 @@ Cloud+ covers several services; this repo grows one at a time.
 
 ## Prerequisites
 
-- A MySabay account with access to Cloud+ / RunApp
-- Docker installed locally, if you want to build/run the example image
+- A Cloud Dash account with access to Cloud+
+- Docker installed locally, if you want to build/run the Docker example image
 - Node.js installed, if you want to run the example without Docker
 
 ## Getting Started
