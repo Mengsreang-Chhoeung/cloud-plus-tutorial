@@ -57,7 +57,7 @@ The example exists to give the docs something concrete to deploy and configure, 
 These are teaching gaps, flagged here, not bugs to silently "fix":
 
 - Only Run App is documented so far. Other Cloud+ services (Storage, Streaming, Transcoder, Database, CMS) have no docs yet.
-- The create-stack wizard's "Policy & Resource" and "Editor / Upload Editor" tabs are named in `docs/run-app/01-getting-started.md` but not elaborated on — the source Notion page didn't go into detail on them either. Don't guess at their behavior; confirm against the live dashboard first.
+- The create-stack wizard's "Policy & Resource", "Editor (Beta)", and "Upload (Beta)" tabs are now documented in `docs/run-app/01-getting-started.md`, confirmed via live-dashboard screenshots (2026-08-27). "Policy & Resource" itself wasn't screenshotted directly clicked open — its fields are inferred from the Editor (Beta) YAML schema, which edits the same underlying config (`replicas`, `restartPolicy`, `resources`). If that inference ever looks wrong, re-confirm against the Form tab directly.
 - The example app has an in-memory visit counter (not real persistence — see "Architecture of the example") and a basic `/health` endpoint, but still no production hardening (no auth, no rate limiting, no request validation beyond what Express does by default). It's a teaching artifact, not a template for a production service.
 
 When editing this repo, preserve this teaching intent: don't invent detail for UI steps that weren't confirmed, and don't quietly expand the example app beyond what the docs actually walk through.
