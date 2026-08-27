@@ -38,6 +38,25 @@ Visit http://localhost:3000 to confirm it works the same way containerized. `doc
 
 ## Deploy to Run App
 
-1. Push this image to a container registry (e.g. Docker Hub).
-2. Follow [`../../../docs/run-app/01-getting-started.md`](../../../docs/run-app/01-getting-started.md) to create a stack from that image, setting `APP_MESSAGE` and `APP_COLOR` as Share Env keys so you can see them reflected once deployed.
+1. Build for `linux/amd64` and push to a container registry (e.g. Docker Hub) — Run App currently only supports that platform.
+
+   ```bash
+   docker login
+
+   docker buildx build --platform linux/amd64 \
+     -t <your-dockerhub-username>/run-app-hello:latest \
+     --push .
+   ```
+
+   `--push` builds and pushes in one step. If you'd rather build and push separately (e.g. to inspect the image locally first), load it into Docker instead and push manually:
+
+   ```bash
+   docker buildx build --platform linux/amd64 \
+     -t <your-dockerhub-username>/run-app-hello:latest \
+     --load .
+
+   docker push <your-dockerhub-username>/run-app-hello:latest
+   ```
+
+2. Follow [`../../../docs/run-app/01-getting-started.md`](../../../docs/run-app/01-getting-started.md) to create a stack from that image (`<your-dockerhub-username>/run-app-hello:latest`), setting `APP_MESSAGE` and `APP_COLOR` as Share Env keys so you can see them reflected once deployed.
 3. Optionally continue with [`02-domain-setup.md`](../../../docs/run-app/02-domain-setup.md) to attach a custom domain.
