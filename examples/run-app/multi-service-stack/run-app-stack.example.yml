@@ -1,0 +1,33 @@
+# Sample stack config for the Editor (Beta) / Upload (Beta) tab described in
+# ../../../docs/run-app/01-getting-started.md. Fill in your own image
+# references and domain names, then paste this in (or upload it) instead of
+# using the Form tab.
+- serviceName: api
+  domainName: api.example.com
+  port: 4000
+  image: <your-registry>/run-app-multi-service-api:latest
+  replicas: 1
+  restartPolicy:
+    maxAttempt: 5
+    restartWindow: 120s
+    delay: 5s
+    condition: ANY
+  resources:
+    cpu: 0.5
+    memory: 512
+
+- serviceName: web
+  domainName: web.example.com
+  port: 3000
+  image: <your-registry>/run-app-multi-service-web:latest
+  dependsOn:
+    - api
+  replicas: 1
+  restartPolicy:
+    maxAttempt: 5
+    restartWindow: 120s
+    delay: 5s
+    condition: ANY
+  resources:
+    cpu: 0.5
+    memory: 512

@@ -1,0 +1,14 @@
+services:
+  api:
+    build: ./api
+    ports:
+      - "4000:4000"
+
+  web:
+    build: ./web
+    ports:
+      - "3000:3000"
+    environment:
+      - API_URL=http://api:4000
+    depends_on:
+      - api

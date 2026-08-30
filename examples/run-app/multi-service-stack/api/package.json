@@ -1,0 +1,14 @@
+{
+  "name": "run-app-multi-service-api",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Backend service for the multi-service-stack Run App example",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

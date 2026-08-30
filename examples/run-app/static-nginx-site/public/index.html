@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Static site on Run App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        max-width: 40rem;
+        margin: 4rem auto;
+        padding: 0 1rem;
+        color: #1f2937;
+      }
+      h1 {
+        color: #2563eb;
+      }
+      code {
+        background: #f3f4f6;
+        padding: 0.15rem 0.4rem;
+        border-radius: 0.25rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Static site on Run App</h1>
+    <p>
+      This page is plain HTML served by nginx — no app server, no build step,
+      no environment variables. It's the smallest possible thing you can
+      deploy to Run App: a Dockerfile that copies files into an nginx image.
+    </p>
+    <p>
+      Edit <code>public/index.html</code>, rebuild the image, and redeploy to
+      see changes.
+    </p>
+  </body>
+</html>
