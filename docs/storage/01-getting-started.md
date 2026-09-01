@@ -29,7 +29,7 @@ If you don't already have a project, you'll be prompted to create one the first 
    The **Free Plan** is available only if you have an active Run App subscription — it's not available on its own.
 
 4. **Payment** — review the order summary (Sub-total / Total) and click **PAY NOW**. For the Free Plan, both show `0 BG` (Business Gold) and there's nothing to pay.
-5. **Bucket Information** — fill in your **Bucket Name** and **Project Name**, then click **CREATE** (disabled until both fields are filled).
+5. **Bucket Information** — fill in your **Bucket Name** and **Project Name**, then click **CREATE**.
 
 Once this completes, you'll see a **Bucket Created Successfully** confirmation showing your **Project Name**, **Bucket Name**, and **Bucket URL** (e.g. `https://fsgw.sabay.com/<bucket-name>`) — this URL is how the bucket is publicly reachable. From here you can go to **Storage Home** or click **ADD MORE BUCKET** to create another one in the same project.
 
