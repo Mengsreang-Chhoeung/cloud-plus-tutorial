@@ -23,7 +23,7 @@ examples/run-app/                    # Runnable sample apps to deploy on Run App
 ├── laravel-hello/                     # Minimal Laravel (PHP) — same env-var pattern, heaviest of the runtime examples
 ├── nextjs-hello/                      # Minimal Next.js (App Router, standalone output) — same env-var pattern
 ├── nestjs-hello/                      # Minimal NestJS — same env-var pattern
-└── springboot-hello/                  # Minimal Spring Boot (Java/Maven) — same env-var pattern
+└── springboot-hello/                  # Minimal Spring Boot (Java/Gradle) — same env-var pattern
 ```
 
 More Cloud+ services (Storage, Streaming, Transcoder, Database, CMS) will get their own `docs/<service>/` and, where it makes sense, `examples/<service>/` siblings later — none exist yet, and no stub files have been created for them.

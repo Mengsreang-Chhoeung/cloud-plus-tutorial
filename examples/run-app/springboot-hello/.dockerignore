@@ -1,5 +1,6 @@
-target
+build
+.gradle
 .git
-.mvn
-mvnw
-mvnw.cmd
+gradle
+gradlew
+gradlew.bat

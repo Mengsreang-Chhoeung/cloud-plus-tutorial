@@ -1,6 +1,6 @@
 # springboot-hello
 
-A minimal Spring Boot app (Java, Maven), deployed to Run App the same way as [`../docker-hello-world`](../docker-hello-world). Run App just runs a container image; the language/runtime inside it doesn't matter. The `Dockerfile` is multi-stage: a `maven` builder stage compiles the jar, and the final image is a lean JRE-only base running just that jar — no Maven or build tooling in the shipped image.
+A minimal Spring Boot app (Java, Gradle), deployed to Run App the same way as [`../docker-hello-world`](../docker-hello-world). Run App just runs a container image; the language/runtime inside it doesn't matter. The `Dockerfile` is multi-stage: a `gradle` builder stage compiles the jar, and the final image is a lean JRE-only base running just that jar — no Gradle or build tooling in the shipped image.
 
 It reads:
 
@@ -14,10 +14,10 @@ It reads:
 
 ## Run locally (no Docker)
 
-Requires a local JDK 21 and Maven (or use the included wrapper):
+Requires a local JDK 21 (Gradle itself comes from the included wrapper):
 
 ```bash
-APP_MESSAGE="hi" ./mvnw spring-boot:run
+APP_MESSAGE="hi" ./gradlew bootRun
 ```
 
 Visit http://localhost:8080.
