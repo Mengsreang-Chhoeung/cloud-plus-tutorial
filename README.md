@@ -7,10 +7,13 @@ A beginner-friendly guide to [Sabay's Cloud+](https://cloud.sabay.com) business 
 ```
 cloud-plus-tutorial/
 ├── docs/
-│   └── run-app/                        # Docker app hosting service
+│   ├── run-app/                        # Docker app hosting service
+│   │   ├── 01-getting-started.md
+│   │   ├── 02-domain-setup.md
+│   │   └── 03-managing-and-deleting.md
+│   └── storage/                        # S3-compatible object storage service
 │       ├── 01-getting-started.md
-│       ├── 02-domain-setup.md
-│       └── 03-managing-and-deleting.md
+│       └── 02-managing-and-deleting.md
 ├── examples/
 │   └── run-app/
 │       ├── docker-hello-world/         # Node/Express — env vars, JSON API, in-memory counter
@@ -30,7 +33,7 @@ cloud-plus-tutorial/
 Cloud+ covers several services; this repo grows one at a time.
 
 - [x] **Run App** (Docker app hosting) — `docs/run-app/` + `examples/run-app/docker-hello-world`
-- [ ] Storage (S3-compatible) — not started
+- [x] **Storage** (S3-compatible object storage) — `docs/storage/` (no runnable example yet)
 - [ ] Streaming — not started
 - [ ] Transcoder — not started
 - [ ] Database — not started
