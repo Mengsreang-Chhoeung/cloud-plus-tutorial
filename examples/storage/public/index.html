@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Storage Hello World</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      max-width: 32rem;
+      margin: 4rem auto;
+      background: #ffffff;
+      color: #111827;
+    }
+    h1 {
+      text-align: center;
+    }
+    button {
+      font-size: 0.875rem;
+      padding: 0.375rem 0.75rem;
+      border: none;
+      border-radius: 0.375rem;
+      background: #2563eb;
+      color: white;
+      cursor: pointer;
+    }
+    #upload-form {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      text-align: left;
+      padding: 0.5rem;
+      border-bottom: 1px solid #e5e7eb;
+      font-size: 0.875rem;
+    }
+    #uptime {
+      color: #6b7280;
+      font-size: 0.875rem;
+      text-align: center;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Storage Hello World</h1>
+
+  <form id="upload-form">
+    <input type="file" id="file-input" required />
+    <button type="submit">Upload</button>
+  </form>
+
+  <table>
+    <thead>
+      <tr><th>Key</th><th>Size</th><th>Last Modified</th><th></th></tr>
+    </thead>
+    <tbody id="object-list"></tbody>
+  </table>
+
+  <p id="uptime"></p>
+
+  <script>
+    async function loadObjects() {
+      const res = await fetch("/api/objects");
+      const { objects } = await res.json();
+      const tbody = document.getElementById("object-list");
+      tbody.innerHTML = "";
+
+      for (const obj of objects) {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${obj.key}</td>
+          <td>${obj.size}</td>
+          <td>${new Date(obj.lastModified).toLocaleString()}</td>
+          <td>
+            <a href="/api/objects/${encodeURIComponent(obj.key)}">Download</a>
+            <button data-key="${obj.key}" class="delete-btn">Delete</button>
+          </td>
+        `;
+        tbody.appendChild(row);
+      }
+
+      document.querySelectorAll(".delete-btn").forEach((btn) => {
+        btn.addEventListener("click", async () => {
+          await fetch(`/api/objects/${encodeURIComponent(btn.dataset.key)}`, {
+            method: "DELETE",
+          });
+          loadObjects();
+        });
+      });
+    }
+
+    async function loadHealth() {
+      const res = await fetch("/health");
+      const { uptimeSeconds } = await res.json();
+      document.getElementById("uptime").textContent =
+        `Server uptime: ${uptimeSeconds}s`;
+    }
+
+    document.getElementById("upload-form").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const fileInput = document.getElementById("file-input");
+      if (!fileInput.files[0]) return;
+
+      const formData = new FormData();
+      formData.append("file", fileInput.files[0]);
+
+      await fetch("/api/objects", { method: "POST", body: formData });
+      fileInput.value = "";
+      loadObjects();
+    });
+
+    loadObjects();
+    loadHealth();
+    setInterval(loadHealth, 5000);
+  </script>
+</body>
+</html>

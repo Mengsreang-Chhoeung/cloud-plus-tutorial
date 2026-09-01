@@ -15,16 +15,17 @@ cloud-plus-tutorial/
 │       ├── 01-getting-started.md
 │       └── 02-managing-and-deleting.md
 ├── examples/
-│   └── run-app/
-│       ├── docker-hello-world/         # Node/Express — env vars, JSON API, in-memory counter
-│       ├── static-nginx-site/          # Plain HTML behind nginx — smallest possible deploy
-│       ├── python-flask-hello/         # Minimal Flask app
-│       ├── multi-service-stack/        # Two services in one stack (web + api)
-│       ├── go-hello/                   # Minimal Go (net/http)
-│       ├── laravel-hello/              # Minimal Laravel (PHP)
-│       ├── nextjs-hello/               # Minimal Next.js (App Router)
-│       ├── nestjs-hello/               # Minimal NestJS
-│       └── springboot-hello/           # Minimal Spring Boot (Java)
+│   ├── run-app/
+│   │   ├── docker-hello-world/         # Node/Express — env vars, JSON API, in-memory counter
+│   │   ├── static-nginx-site/          # Plain HTML behind nginx — smallest possible deploy
+│   │   ├── python-flask-hello/         # Minimal Flask app
+│   │   ├── multi-service-stack/        # Two services in one stack (web + api)
+│   │   ├── go-hello/                   # Minimal Go (net/http)
+│   │   ├── laravel-hello/              # Minimal Laravel (PHP)
+│   │   ├── nextjs-hello/               # Minimal Next.js (App Router)
+│   │   ├── nestjs-hello/               # Minimal NestJS
+│   │   └── springboot-hello/           # Minimal Spring Boot (Java)
+│   └── storage/                        # Node/Express — S3 upload/list/download/delete
 └── README.md
 ```
 
@@ -33,7 +34,7 @@ cloud-plus-tutorial/
 Cloud+ covers several services; this repo grows one at a time.
 
 - [x] **Run App** (Docker app hosting) — `docs/run-app/` + `examples/run-app/docker-hello-world`
-- [x] **Storage** (S3-compatible object storage) — `docs/storage/` (no runnable example yet)
+- [x] **Storage** (S3-compatible object storage) — `docs/storage/` + `examples/storage`
 - [ ] Streaming — not started
 - [ ] Transcoder — not started
 - [ ] Database — not started

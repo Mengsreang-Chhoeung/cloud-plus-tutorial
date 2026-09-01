@@ -28,9 +28,11 @@ examples/run-app/                    # Runnable sample apps to deploy on Run App
 docs/storage/                          # Written guides, meant to be read in order
 ├── 01-getting-started.md            # What Storage is, subscription flow, create a bucket
 └── 02-managing-and-deleting.md      # Bucket list, access keys, sub-users, delete a bucket
+
+examples/storage/                      # Express app: S3 upload/list/download/delete, /health
 ```
 
-More Cloud+ services (Streaming, Transcoder, Database, CMS) will get their own `docs/<service>/` and, where it makes sense, `examples/<service>/` siblings later — none exist yet, and no stub files have been created for them. Storage has docs but no `examples/storage/` yet.
+More Cloud+ services (Streaming, Transcoder, Database, CMS) will get their own `docs/<service>/` and, where it makes sense, `examples/<service>/` siblings later — none exist yet, and no stub files have been created for them.
 
 ## Source material
 
@@ -73,5 +75,6 @@ These are teaching gaps, flagged here, not bugs to silently "fix":
 - `docker-hello-world` has an in-memory visit counter (not real persistence — see "Architecture of docker-hello-world") and a basic `/health` endpoint, but still no production hardening (no auth, no rate limiting, no request validation beyond what Express does by default). None of the `examples/run-app/` apps are templates for a production service.
 - `multi-service-stack`'s `web` service reaches `api` via a configurable `API_URL` env var. Confirmed via live-dashboard testing (2026-09-01): each deployed service has an internal **Service Network** name (`docs/run-app/03-managing-and-deleting.md`), and other services in the same stack can reach it directly at `http://<service-network-value>:<container-port>` — no public domain required. `API_URL` stays configurable rather than hardcoded because the Service Network value is stack/account-specific (embeds a random uid).
 - `docs/storage/` was confirmed via live-dashboard screenshots (2026-09-01) covering: the subscription/create-bucket wizard (Account Verification → Plans → Payment → Bucket Information), the Bucket List tab (Usage, Access/Secret Key, bucket cards), and the User Management tab's "Add Sub-user S3" dialog. Not confirmed/covered: the Storage page's **Transcoder** and **Streaming** tabs (content not opened), the delete-bucket confirmation dialog, the sub-user **Permission** dropdown's actual options, and the payment step's currency/flow for any plan above Free (only the Free Plan's `0 BG` payment step was seen).
+- `examples/storage/` uses `STORAGE_ENDPOINT` defaulting to `https://fsgw.sabay.com` (user-confirmed as the same host used for programmatic S3 API access, not just public bucket URLs) and `forcePathStyle: true` to match the confirmed `<endpoint>/<bucket-name>` URL shape. Like every other example, it has no auth, no request validation beyond Express/multer defaults, and no retry logic — it's not a template for a production upload service.
 
 When editing this repo, preserve this teaching intent: don't invent detail for UI steps that weren't confirmed, and don't quietly expand any example app beyond what the docs actually walk through.
