@@ -42,4 +42,4 @@ Cloud+ covers several services; this repo grows one at a time.
 
 ## Disclaimer
 
-Menu names, button labels, and steps referenced in this repo were captured from the MySabay Run App dashboard at a point in time and should be verified against the current live dashboard before being taught or relied on — like any UI-driven product, it can change without notice.
+Menu names, button labels, and steps referenced in this repo were captured from the Run App Cloud Dash dashboard at a point in time and should be verified against the current live dashboard before being taught or relied on — like any UI-driven product, it can change without notice.

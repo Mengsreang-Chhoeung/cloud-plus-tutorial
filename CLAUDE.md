@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this repo is
 
-A beginner-facing tutorial for Sabay's Cloud+ business services (SabayTEKH PaaS), starting with **Run App** — a Docker container hosting service on MySabay. This is **teaching material, not a product SDK** — Run App has no public API to wrap; it's a dashboard/UI workflow (create a "stack", subscribe to a plan, configure env vars, attach a domain). Docs describe that UI workflow in prose; the one runnable piece is a small Dockerized sample app students can actually build and deploy.
+A beginner-facing tutorial for Sabay's Cloud+ business services (SabayTEKH PaaS), starting with **Run App** — a Docker container hosting service on Cloud Dash. This is **teaching material, not a product SDK** — Run App has no public API to wrap; it's a dashboard/UI workflow (create a "stack", subscribe to a plan, configure env vars, attach a domain). Docs describe that UI workflow in prose; the one runnable piece is a small Dockerized sample app students can actually build and deploy.
 
 ## Repo structure
 
