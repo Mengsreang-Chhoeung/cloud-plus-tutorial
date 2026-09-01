@@ -26,7 +26,7 @@ If you don't already have a project, you'll be prompted to create one the first 
    | Pro        | 600,000         | 20      | 6 TB     | 2000 GB  |
    | Enterprise | 2,000,000       | 20      | 30 TB    | 10000 GB |
 
-   If you already have an active subscription to another Cloud+ service (e.g. Run App), the **Free Plan** is available to you for Storage as well.
+   The **Free Plan** is available only if you have an active Run App subscription — it's not available on its own.
 
 4. **Payment** — review the order summary (Sub-total / Total) and click **PAY NOW**. For the Free Plan, both show `0 BG` (Business Gold) and there's nothing to pay.
 5. **Bucket Information** — fill in your **Bucket Name** and **Project Name**, then click **CREATE** (disabled until both fields are filled).
