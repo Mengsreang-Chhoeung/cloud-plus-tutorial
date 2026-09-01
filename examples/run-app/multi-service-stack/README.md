@@ -35,7 +35,7 @@ Visit http://localhost:3000 — it should show three items fetched from the `api
    - Add the `api` service first (**Service Info** → your `run-app-multi-service-api` image, container port `4000`).
    - Click **ADD SERVICE** and add `web` (your `run-app-multi-service-web` image, container port `3000`), setting **Depend On** to the `api` service.
    - Or skip the Form entirely and paste [`run-app-stack.example.yml`](./run-app-stack.example.yml) into the **Editor (Beta)** tab, filling in your own image names and domains first.
-3. Set `API_URL` for the `web` service (per-service **Environment** tab, or Shared Env) so it points at wherever the `api` service ends up reachable — its assigned domain, most likely. **How services address each other *inside* a Run App stack isn't confirmed by the source material this repo is based on** (see `CLAUDE.md` → Known intentional gaps); this example keeps `API_URL` fully configurable so it works however that turns out to behave, rather than assuming Docker Swarm's usual service-name DNS applies here unconfirmed.
+3. Once `api` is deployed, open its **Service Info** tab (see [`03-managing-and-deleting.md`](../../../docs/run-app/03-managing-and-deleting.md)) and copy its **Service Network** value — an internal Docker network name formatted `uid-<account-uid>-cca-<stack-name>_api`. Set `API_URL` for the `web` service (per-service **Environment** tab, or Shared Env) to `http://<that value>:4000`. This value is specific to your own stack (it embeds a random uid), so it can't be hardcoded in this example — copy it from your dashboard after `api` is deployed.
 
 ## Local development (single service)
 
