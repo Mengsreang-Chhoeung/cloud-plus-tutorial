@@ -18,7 +18,12 @@ examples/run-app/                    # Runnable sample apps to deploy on Run App
 ├── docker-hello-world/               # Express app: env vars, JSON API, in-memory counter, /health
 ├── static-nginx-site/                # Plain HTML behind nginx — no app code, smallest possible deploy
 ├── python-flask-hello/               # Minimal Flask app — same env-var pattern, different runtime
-└── multi-service-stack/              # Two Express services (web + api) in one stack — dependsOn / ADD SERVICE
+├── multi-service-stack/              # Two Express services (web + api) in one stack — dependsOn / ADD SERVICE
+├── go-hello/                          # Minimal Go (net/http) — same env-var pattern, no framework dependency
+├── laravel-hello/                     # Minimal Laravel (PHP) — same env-var pattern, heaviest of the runtime examples
+├── nextjs-hello/                      # Minimal Next.js (App Router, standalone output) — same env-var pattern
+├── nestjs-hello/                      # Minimal NestJS — same env-var pattern
+└── springboot-hello/                  # Minimal Spring Boot (Java/Maven) — same env-var pattern
 ```
 
 More Cloud+ services (Storage, Streaming, Transcoder, Database, CMS) will get their own `docs/<service>/` and, where it makes sense, `examples/<service>/` siblings later — none exist yet, and no stub files have been created for them.

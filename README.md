@@ -13,7 +13,15 @@ cloud-plus-tutorial/
 │       └── 03-managing-and-deleting.md
 ├── examples/
 │   └── run-app/
-│       └── docker-hello-world/         # Runnable Dockerized sample app
+│       ├── docker-hello-world/         # Node/Express — env vars, JSON API, in-memory counter
+│       ├── static-nginx-site/          # Plain HTML behind nginx — smallest possible deploy
+│       ├── python-flask-hello/         # Minimal Flask app
+│       ├── multi-service-stack/        # Two services in one stack (web + api)
+│       ├── go-hello/                   # Minimal Go (net/http)
+│       ├── laravel-hello/              # Minimal Laravel (PHP)
+│       ├── nextjs-hello/               # Minimal Next.js (App Router)
+│       ├── nestjs-hello/               # Minimal NestJS
+│       └── springboot-hello/           # Minimal Spring Boot (Java)
 └── README.md
 ```
 
