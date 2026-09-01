@@ -62,7 +62,10 @@ A service card with three sub-tabs:
   - **Entrypoint** — optional container entrypoint override
   - **Depend On** — select other services in the same stack this one depends on (for multi-service stacks)
 - **Environment** — per-service environment variables (separate from the stack-level **Shared Env** above)
-- **Policy & Resource** — restart policy and resource limits (see the Editor schema below for the exact fields — this tab wasn't screenshotted directly, but it edits the same `restartPolicy` / `resources` config)
+- **Policy & Resource**:
+  - **Restart Policy** — **Restart Condition** (dropdown: **Any** / **On failure** / **None**), **Restart Delay** (e.g. `5s`), **Restart Max Attempts** (e.g. `5`), **Restart Windows** (e.g. `120s`)
+  - **Replicas** — number of instances of this service, capped by your plan (shown as e.g. `1 / 2`)
+  - **Resource** — **CPU** and **Memory** dropdowns (e.g. `0.5 CPU`, `0.5 GB`), applied **per replica**. Total consumption against your plan quota is replicas × per-replica value (e.g. 2 replicas at `0.5 CPU` / `0.5 GB` each consumes 1 core / 1 GB total).
 
 Click **ADD SERVICE** to add another service to the same stack.
 
@@ -93,7 +96,7 @@ A raw YAML editor for the same configuration (**Upload (Beta)** additionally let
     memory: 512
 ```
 
-This confirms what **Policy & Resource** in the Form covers: `replicas`, a `restartPolicy` (max retry attempts, restart window, delay, and a trigger condition), and `resources` (CPU cores, memory in MB).
+This is the same underlying config the Form's **Policy & Resource** tab edits — `replicas`, `restartPolicy` (max retry attempts, restart window, delay, and a trigger condition), and `resources` (CPU cores, memory in MB, applied per replica).
 
 Once your service(s) are configured, click **CREATE** to save the stack without deploying, or **CREATE & DEPLOY** to deploy it immediately.
 
