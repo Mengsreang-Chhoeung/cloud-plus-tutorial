@@ -64,6 +64,11 @@ A service card with three sub-tabs:
 - **Environment** — per-service environment variables (separate from the stack-level **Shared Env** above)
 - **Policy & Resource**:
   - **Restart Policy** — **Restart Condition** (dropdown: **Any** / **On failure** / **None**), **Restart Delay** (e.g. `5s`), **Restart Max Attempts** (e.g. `5`), **Restart Windows** (e.g. `120s`)
+
+    **Restart Condition** decides whether Run App relaunches the service after its container process exits:
+    - **Any** — restart no matter how the process exited (success or failure). This is what you want for a long-running server (e.g. [`docker-hello-world`](../../examples/run-app/docker-hello-world/)) — if it crashes, or exits for any other reason, Run App brings it back.
+    - **On failure** — restart only on a non-zero exit code. Useful for a job you want retried a few times on transient failure, but not re-run after it succeeds.
+    - **None** — never restart, regardless of exit code. Right for a one-off container that's *supposed* to run once and stop, like a database migration or import job — see [`examples/run-app/batch-job-none-restart`](../../examples/run-app/batch-job-none-restart/) for a runnable demo. Leaving this on **Any** for a job like that turns it into an infinite loop, since Run App keeps re-running it every time it exits.
   - **Replicas** — number of instances of this service, capped by your plan (shown as e.g. `1 / 2`)
   - **Resource** — **CPU** and **Memory** dropdowns (e.g. `0.5 CPU`, `0.5 GB`), applied **per replica**. Total consumption against your plan quota is replicas × per-replica value (e.g. 2 replicas at `0.5 CPU` / `0.5 GB` each consumes 1 core / 1 GB total).
 

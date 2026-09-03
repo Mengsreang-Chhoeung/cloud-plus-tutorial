@@ -23,7 +23,8 @@ examples/run-app/                    # Runnable sample apps to deploy on Run App
 ├── laravel-hello/                     # Minimal Laravel (PHP) — same env-var pattern, heaviest of the runtime examples
 ├── nextjs-hello/                      # Minimal Next.js (App Router, standalone output) — same env-var pattern
 ├── nestjs-hello/                      # Minimal NestJS — same env-var pattern
-└── springboot-hello/                  # Minimal Spring Boot (Java/Gradle) — same env-var pattern
+├── springboot-hello/                  # Minimal Spring Boot (Java/Gradle) — same env-var pattern
+└── batch-job-none-restart/            # One-off job that exits — demonstrates Restart Condition = None vs Any/On failure
 
 docs/storage/                          # Written guides, meant to be read in order
 ├── 01-getting-started.md            # What Storage is, subscription flow, create a bucket

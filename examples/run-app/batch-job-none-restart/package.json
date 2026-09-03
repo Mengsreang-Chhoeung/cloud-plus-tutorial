@@ -1,0 +1,10 @@
+{
+  "name": "run-app-batch-job-none-restart",
+  "version": "1.0.0",
+  "private": true,
+  "description": "One-off job container for demonstrating Run App's Restart Condition = None",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  }
+}
